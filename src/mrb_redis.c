@@ -296,9 +296,10 @@ mrb_value mrb_redis_basic_zrange(mrb_state *mrb, mrb_value self, const char *cmd
     redisReply *rr = redisCommand(rc, "%s %s %d %d", cmd, RSTRING_PTR(list), arg1, arg2);
     if (rr->type == REDIS_REPLY_ARRAY) {
         array = mrb_ary_new(mrb);
-        for (i = 0; i < rr->elements; i++) {
+        return mrb_fixnum_value(rr->elements);
+        /*for (i = 0; i < rr->elements; i++) {
             mrb_ary_push(mrb, array, mrb_str_new_cstr(mrb, rr->element[i]->str));
-        }
+        }*/
     } else {
         freeReplyObject(rr);
         return mrb_nil_value();
