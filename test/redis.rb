@@ -31,6 +31,7 @@ assert("Redis#exist?") do
   assert_false ret2
 end
 
+=begin
 assert("Redis#zadd, Redis#zrange") do
   r = Redis.new "127.0.0.1", 6379
   puts r.exists? "hs"
@@ -44,6 +45,7 @@ assert("Redis#zadd, Redis#zrange") do
 
   assert_equal ["b", "c", "a"], ret
 end
+=end
 
 assert("Redis#zrevrange") do
   r = Redis.new "127.0.0.1", 6379
