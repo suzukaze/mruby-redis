@@ -309,7 +309,8 @@ mrb_value mrb_redis_basic_zrange(mrb_state *mrb, mrb_value self, const char *cmd
 
     freeReplyObject(rr);
 
-    return array;
+    return mrb_fixnum_value(1000);
+//    return array;
 }
 
 mrb_value mrb_redis_zrange(mrb_state *mrb, mrb_value self)
