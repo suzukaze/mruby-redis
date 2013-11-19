@@ -33,7 +33,9 @@ end
 
 assert("Redis#zadd, Redis#zrange") do
   r = Redis.new "127.0.0.1", 6379
+  puts r.exists? "hs"
   r.del "hs"
+  puts r.exists? "hs"
   r.zadd "hs", 80, "a"
   r.zadd "hs", 50.1, "b"
   r.zadd "hs", 60, "c"
